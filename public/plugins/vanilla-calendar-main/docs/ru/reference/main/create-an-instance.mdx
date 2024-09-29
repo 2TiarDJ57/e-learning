@@ -1,0 +1,61 @@
+
+
+# Создать экземпляр
+
+`new VanillaCalendar()` - создает экземпляр VanillaCalendar, представляющего собой сам календарь, его параметры и методы.
+
+<Info>
+  Календарь можно создать, только вызвав функцию **VanillaCalendar** в качестве конструктора. Обычный вызов функции (то есть без использования оператора new) вернет строку вместо объекта **VanillaCalendar**.
+</Info>
+
+<Info>
+  Если вы загрузили **VanillaCalendar** из тега `<script>`, объект доступен в глобальной переменной **window.VanillaCalendar**.
+</Info>
+
+Экземпляр `VanillaCalendar`, принимает в себя два параметра. Первым **обязательным** параметром может быть **CSS-селектор** или **HTML-элемент**.
+
+**CSS-селектор** или **HTML-элемент** может быть либо обертка календаря в который проинициализируется календарь или «Input».
+
+Обертка календаря — это тег `<div>`, в котором инициализируется сам календарь.
+
+Проинициализировать в обертку календаря:
+
+```html
+<div id="calendar"></div>
+```
+
+```js
+new VanillaCalendar('#calendar');
+// or
+const calendarEl = document.querySelector('#calendar');
+new VanillaCalendar(calendarEl);
+```
+
+«Input» в контексте этого календаря не обязательно тег `<input>`, это может быть любой тег, например `<div>`.
+
+При клике на «Input» появится поп-ап c календарем.
+
+Проинициализировать в «Input»:
+
+```html
+<input type="text" id="input">
+<!-- or -->
+<div id="input"></div>
+```
+
+```js
+new VanillaCalendar('#input', { input: true });
+// or
+const calendarInput = document.querySelector('#input');
+new VanillaCalendar(calendarInput, {
+  input: true,
+});
+```
+
+Второй **необязательный** параметр — это объект, определяющий настройки и методы календаря.
+
+```js
+new VanillaCalendar('#calendar', {
+  // Settings
+});
+```

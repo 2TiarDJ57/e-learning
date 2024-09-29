@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"outDir": "./build/",
+		"target": "ESNext",
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": false,
+		"noEmit": true,
+		"types": ["cypress", "node"],
+		"paths": {
+			"@/*": ["./*"]
+		}
+	},
+	"include": ["**/*.ts", "**/*.js", "**/*.cy.ts"],
+	"exclude": ["node_modules", "next/*"]
+}

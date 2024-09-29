@@ -1,0 +1,178 @@
+
+
+# Действия
+
+Действия — это своего рода перехватчики событий календаря, они позволяют получить необходимые данные для дальнейшей обработки.
+
+<Info>
+  Обратите внимание, что нумерация месяцев начинаются с `0`, поэтому декабрь — это 11-й месяц. Это связано с работой стандартного метода <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth" target="_blank" rel="nofollow noreferrer">`.getMonth()`</a>.
+</Info>
+
+## actions.clickDay()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickDay(e, dates) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickDay(e, dates) {},
+  },
+});
+```
+
+Метод срабатывает после нажатия на день в календаре. Параметры, которые можно получить: `e` - событие мыши, `dates` - массив выбранных дат.
+
+<Info>
+  Важно знать, что каждый HTML-элемент дня, на который нажали, содержит data-атрибут, внутри которого находится полная дата в формате `YYYY-MM-DD`.
+  Если вам нужно получить день, месяц, год отдельно, то вы можете использовать стандартные методы JS.
+  В качестве примера: `new Date('2022-11-07').getDate()` вернет `7`.
+</Info>
+
+---
+
+## actions.clickWeekNumber()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickWeekNumber(e, number, days, year) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickWeekNumber(e, number, days, year) {},
+  },
+});
+```
+
+Для работы этого метода, необходим параметр <a href="/docs/reference/additionally/settings#visibility-weeknumbers">`settings.visibility.weekNumbers`</a> со значением `true`.
+
+Метод срабатывает после нажатия на номер недели в календаре. Параметры, которые можно получить: `e` - событие мыши, `number` - номер недели, `days` - массив дней (html-элементов), `year` - год недели.
+
+---
+
+## actions.clickMonth()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickMonth(e, month) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickMonth(e, month) {},
+  },
+});
+```
+
+Метод срабатывает после выбора месяца в календаре. Параметры, которые можно получить: `e` - событие мыши, `month` - номер выбранного месяца.
+
+---
+
+## actions.clickYear()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickYear(e, year) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickYear(e, year) {},
+  },
+});
+```
+
+Метод срабатывает после выбора года в календаре. Параметры, которые можно получить: `e` - событие мыши, `year` - выбранный год.
+
+---
+
+## actions.clickArrow()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickArrow(e, year, month) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickArrow(e, year, month) {},
+  },
+});
+```
+
+Метод срабатывает после клика на стрелочку. Параметры, которые можно получить: `e` - событие мыши, `year` - выбранный год, `month` - номер выбранного месяца.
+
+---
+
+## actions.changeTime()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: changeTime(e, time, hours, minutes, keeping) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    changeTime(e, time, hours, minutes, keeping) {},
+  },
+});
+```
+
+Метод срабатывает после изменения времени любым способом. Параметры, которые можно получить: `e` - событие change, `time` - выбранное время, `hours` - выбранный час, `minutes` - выбранные минуты,`keeping` - выбранный маркер AM/PM.
+
+---
+
+## actions.changeToInput()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: changeToInput(e, HTMLInputElement, dates, time, hours, minutes, keeping) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    changeToInput(e, HTMLInputElement, dates, time, hours, minutes, keeping) {},
+  },
+});
+```
+Для работы этого метода, необходим параметр <a href="/docs/reference/main/main-settings#input">`input`</a> со значением `true`.
+
+Метод срабатывает после после нажатия на день в календаре или изменения времени любым способом.
+Параметры, которые можно получить: `e` - событие, `HTMLInputElement` - HTML-элемент, который является полем ввода, `dates` - массив выбранных дат, `time` - выбранное время, `hours` - выбранный час, `minutes` - выбранные минуты,`keeping` - выбранный маркер AM/PM.
+
+---
+
+## actions.getDays()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: getDays(day, date, HTMLElement, HTMLButtonElement) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    getDays(day, date, HTMLElement, HTMLButtonElement) {},
+  },
+});
+```
+
+Метод срабатывает при инициализации календаря и любых изменениях. Позволяет получить необходимую информацию о каждом дне и его HTML-элементе.
+Параметры, которые можно получить: `day` - номер дня, `date` - полная дата в формате `YYYY-MM-DD`, `HTMLElement` - родительский (обертка) HTML-элемент дня, `HTMLButtonElement` - дочерний (кнопка) HTML-элемент дня.

@@ -1,0 +1,175 @@
+# Actions
+
+Actions are calendar handlers, they allow you to get the necessary data for further processing.
+
+<Info>
+  Note that month numbers start at `0`, so December is the 11th month.
+  This is due to the work of the standard method <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth" target="_blank" rel="nofollow noreferrer" >`.getMonth()`</a>.
+</Info>
+
+## actions.clickDay()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickDay(e, dates) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickDay(e, dates) {},
+  },
+});
+```
+
+The method is triggered after clicking on a day in the calendar. Parameters that can be received: `e` - mouse event, `dates` - array of selected dates.
+
+<Info>
+  It is important to know that each HTML element of the day that is clicked contains a data attribute, inside which is the full date in the format `YYYY-MM-DD`.
+  If you need to get the day, month, year separately, then you can use the standard JS methods.
+  Example: `new Date('2022-11-07').getDate()` will return `7`.
+</Info>
+
+---
+
+## actions.clickWeekNumber()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickWeekNumber(e, number, days, year) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickWeekNumber(e, number, days, year) {},
+  },
+});
+```
+
+For this method to work, the parameter <a href="/docs/reference/additionally/settings#visibility-weeknumbers">`settings.visibility.weekNumbers`</a> with the value `true` is required.
+
+The method is triggered after clicking on the week number in the calendar. Parameters that can be received: `e` - mouse event, `number` - week number, `days` - array of days (html elements), `year` - year of the week.
+
+---
+
+## actions.clickMonth()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickMonth(e, month) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickMonth(e, month) {},
+  },
+});
+```
+
+The method is triggered after selecting a month in the calendar. Parameters that can be received: `e` - mouse event, `month` - selected month number.
+
+---
+
+## actions.clickYear()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickYear(e, year) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickYear(e, year) {},
+  },
+});
+```
+
+The method is triggered after selecting a year in the calendar. Parameters that can be received: `e` - mouse event, `year` - selected year.
+
+---
+
+## actions.clickArrow()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: clickArrow(e, year, month) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    clickArrow(e, year, month) {},
+  },
+});
+```
+
+The method is triggered after clicking on the arrow. Parameters that can be received: `e` - mouse event, `year` - selected year, `month` - selected month number.
+
+---
+
+## actions.changeTime()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: changeTime(e, time, hours, minutes, keeping) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    changeTime(e, time, hours, minutes, keeping) {},
+  },
+});
+```
+
+The method is triggered after changing the time in any way. The parameters that can be received are: `e` - the change event, `time` - the selected time, `hours` - the selected hour, `minutes` - the selected minutes, `keeping` - the selected AM/PM marker.
+
+## actions.changeToInput()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: changeToInput(e, HTMLInputElement, dates, time, hours, minutes, keeping) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    changeToInput(e, HTMLInputElement, dates, time, hours, minutes, keeping) {},
+  },
+});
+```
+For this method to work, the parameter <a href="/docs/reference/main/main-settings#input">`input`</a> with the value `true` is required.
+
+The method is triggered after clicking on a day in the calendar or changing the time in any way.
+Parameters that can be received: `e` - event, `HTMLInputElement` - HTML element that is an input field, `dates` - array of selected dates, `time` - selected time, `hours` - selected hour, `minutes ` is the selected minutes, `keeping` is the selected AM/PM marker.
+
+---
+
+## actions.getDays()
+
+`Type: Function`
+
+`Default: null`
+
+`Options: getDays(day, date, HTMLElement, HTMLButtonElement) => void | null`
+
+```js
+new VanillaCalendar('#calendar', {
+  actions: {
+    getDays(day, date, HTMLElement, HTMLButtonElement) {},
+  },
+});
+```
+
+The method is triggered when the calendar is initialized and any change. Allows you to get the necessary information about each day and its HTML element.
+Parameters that can be obtained: `day` - day number, `date` - full date in `YYYY-MM-DD` format, `HTMLElement` - parent (wrapper) HTML element of the day, `HTMLButtonElement` - child (button) HTML element of the day.

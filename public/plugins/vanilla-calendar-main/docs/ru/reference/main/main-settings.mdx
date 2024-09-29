@@ -1,0 +1,134 @@
+# Основные настройки
+
+Основные параметры отвечают за наиболее важные изменения.
+
+## input
+
+`Type: Boolean`
+
+`Default: false`
+
+`Options: true | false`
+
+```js
+new VanillaCalendar('#calendar', {
+  input: true,
+});
+```
+
+Указывает, что `HTMLElement`, переданный в качестве первого параметра, является полем ввода, а не оберткой календаря.
+
+- - -
+
+## type
+
+`Type: String`
+
+`Default: 'default'`
+
+`Options: 'default' | 'multiple' | 'month' | 'year'`
+
+```js
+new VanillaCalendar('#calendar', {
+  type: 'default',
+});
+```
+
+Тип выводимого календаря.
+
+- - -
+
+## months
+
+`Type: Number`
+
+`Default: 2`
+
+`Options: от 2 до 12`
+
+```js
+new VanillaCalendar('#calendar', {
+  months: 2,
+});
+```
+
+Определяет количество месяцев для отображения, если тип календаря определен как `'multiple'`.
+
+- - -
+
+## jumpMonths
+
+`Type: Number`
+
+`Default: 1`
+
+`Options: от 1 до ∞`
+
+```js
+new VanillaCalendar('#calendar', {
+  jumpMonths: 1,
+});
+```
+
+Количество переключаемых месяцев.
+
+- - -
+
+## date.min
+
+`Type: String`
+
+`Default: '1970-01-01'`
+
+`Options: 'YYYY-MM-DD'`
+
+```js
+new VanillaCalendar('#calendar', {
+  date: {
+    min: '1970-01-01',
+  },
+});
+```
+
+Минимально возможная дата, которую календарь будет учитывать в своем жизненном цикле, а это значит, что дат меньше этой не будет.
+
+- - -
+
+## date.max
+
+`Type: String`
+
+`Default: '2470-12-31'`
+
+`Options: 'YYYY-MM-DD'`
+
+```js
+new VanillaCalendar('#calendar', {
+  date: {
+    max: '2470-12-31',
+  },
+});
+```
+
+Как и `data.min`, этот параметр отвечает за жизненный цикл календаря. Устанавливает максимально возможную дату.
+
+- - -
+
+
+## date.today
+
+`Type: Date object`
+
+`Default: new Date()`
+
+`Options: new Date()`
+
+```js
+new VanillaCalendar('#calendar', {
+  date: {
+    today: new Date('2022-01-07'),
+  },
+});
+```
+
+Указывает, какой день календарь будет считать сегодняшним.

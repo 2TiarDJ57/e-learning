@@ -1,0 +1,19 @@
+# Темы
+
+Календарь поддерживает темную и светлую тему оформления.
+
+Если для параметра `settings.visibility.themeDetect`. установлено значение `false`, тема определяется системой пользователя или параметром `settings.visibility.theme`.
+
+Календарь может определять и отслеживать тему сайта автоматически, по заданному тегу и атрибуту, подробнее читайте в справочнике, параметр <a href="/docs/reference/additionally/settings#visibility-themeDetect">`settings.visibility.themeDetect`</a>.
+
+Если ваш сайт поддерживает только одну тему или вы хотите, чтобы ваш календарь выглядел по-своему, вы можете принудительно выбрать любую из тем.
+
+Кстати, поскольку мы принудительно включаем одну тему, нам не нужно загружать лишний файл css.
+
+Удаляем лишний импорт css и активируем темную тему.
+
+<Sandbox example="customization-and-modification-themes-dark" themeDetection={false} />
+
+А теперь тоже самое, только с `'light'` темой.
+
+<Sandbox example="customization-and-modification-themes-light" themeDetection={false} />

@@ -1,0 +1,28 @@
+:root {
+    --dark: #05161A;
+    --darkgreen: #072E33;
+    --green: #0C7075;
+    --cyan: #0F969C;
+    --lightgreen: #6DA5C0;
+    --army: #294D61;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+header {
+    background-image: url('img/circle-scatter-haikei.png');
+}
+
+nav {
+    background: linear-gradient(var(--dark), var(--lightgreen));
+}
+
+nav ul li a {
+    color: white !important;
+}
+
+a {
+    text-decoration: none;
+}

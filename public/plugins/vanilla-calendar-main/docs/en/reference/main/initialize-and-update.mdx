@@ -1,0 +1,21 @@
+# Initialize, update and reset
+
+`init()` - The main instance method that initializes the calendar.
+
+```js
+const calendar = new VanillaCalendar(element, params);
+calendar.init();
+```
+
+You can also update the calendar with the new settings at any time using the `update()` method.
+
+The `update()` method, unlike `reset()`, saves the user's selected dates, month, and year after the update.
+
+```js
+calendar.settings.lang = 'de-AT';
+calendar.settings.iso8601 = false;
+
+calendar.update();
+// or
+calendar.reset();
+```
